@@ -6,6 +6,7 @@ on:
       skipInput:
         description: 'wanna skip pushing Docker image or not (true/false)'
         required: true
+        type: boolean
 
 jobs:
   lint-and-test:
@@ -53,5 +54,5 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/github-action-school .
 
       - name: Push to Dockerhub
-        if: inputs.skipInput != 'true'
+        if:  ${{ !inputs.skipInput }}
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-action-school
