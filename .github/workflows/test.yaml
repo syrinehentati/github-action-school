@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       skipInput:
-        description: 'Skip pushing Docker image or not (true/false)'
+        description: 'wanna skip pushing Docker image or not (true/false)'
         required: true
 
 jobs:
